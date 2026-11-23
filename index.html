@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZOOL COOL | مؤسسة زول كول لصيانة الأجهزة وقطع الغيار</title>
+  <style>
+    :root {
+      --bg: #07111e;
+      --card: #0e1e33;
+      --card-2: #132742;
+      --primary: #0ea5e9;
+      --primary-dark: #0284c7;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border: rgba(148, 163, 184, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #060e18 0%, #0b192c 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
+      background: rgba(14, 30, 51, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand h1 {
+      font-size: 1.35rem;
+      color: var(--accent);
+      letter-spacing: 0.4px;
+    }
+
+    .brand p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--card-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 9px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .stat strong {
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: #e2e8f0;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      background: #081322;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+    }
+
+    textarea {
+      min-height: 82px;
+      resize: vertical;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 11px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.94rem;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-sm {
+      padding: 6px 11px;
+      font-size: 0.8rem;
+      border-radius: 8px;
+    }
+
+    .btn-success {
+      background: var(--success);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+    }
+
+    .order-item {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .order-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .badge-new {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+    }
+
+    .badge-done {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+    }
+
+    .actions-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .alert {
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #a7f3d0;
+      display: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.84rem;
+      padding: 18px 8px 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <h1>ZOOL COOL | مؤسسة زول كول</h1>
+        <p>صيانة الأجهزة المنزلية والتجارية وقطع الغيار • بإدارة: صلاح الدين محجوب حسن سليمان</p>
+      </div>
+      <div class="nav-tabs">
+        <button class="tab-btn active" id="tabClientBtn" onclick="switchView('client')">حجز خدمة عميل</button>
+        <button class="tab-btn" id="tabAdminBtn" onclick="switchView('admin')">لوحة الإدارة (PIN)</button>
+      </div>
+    </header>
+
+    <!-- واجهة العميل -->
+    <section id="clientView">
+      <div class="card">
+        <h2>طلب صيانة أو قطعة غيار (الأسعار من 250 إلى 5,000 جنيه)</h2>
+        <div class="alert" id="bookingSuccess">تم تسجيل طلب الصيانة بنجاح وحفظه في سجل الطلبات.</div>
+
+        <form id="bookingForm" onsubmit="addOrder(event)">
+          <div class="grid-2">
+            <div>
+              <label for="customerName">اسم العميل *</label>
+              <input type="text" id="customerName" required placeholder="مثال: أحمد محمود" />
+            </div>
+            <div>
+              <label for="customerPhone">رقم الهاتف / واتساب *</label>
+              <input type="tel" id="customerPhone" required placeholder="مثال: 010xxxxxxxx" />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <label for="applianceType">نوع الجهاز أو الخدمة *</label>
+              <select id="applianceType" required>
+                <option value="تكييف منزلي / تجاري">تكييف منزلي / تجاري</option>
+                <option value="ثلاجة / ديب فريزر">ثلاجة / ديب فريزر</option>
+                <option value="غسالة ملابس / أطباق">غسالة ملابس / أطباق</option>
+                <option value="بوتاجاز / فرن / سخان">بوتاجاز / فرن / سخان</option>
+                <option value="قطع غيار أصلية">قطع غيار أصلية</option>
+                <option value="صيانة دورية شاملة">صيانة دورية شاملة</option>
+              </select>
+            </div>
+            <div>
+              <label for="estimatedPrice">السعر التقديري (جنيه مصري: 250 - 5,000) *</label>
+              <input type="number" id="estimatedPrice" min="250" max="5000" step="50" value="500" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="customerAddress">العنوان والمنطقة *</label>
+            <input type="text" id="customerAddress" required placeholder="المدينة / الحي / الشارع / رقم العقار" />
+          </div>
+
+          <div>
+            <label for="issueNotes">وصف العطل أو المطلوب</label>
+            <textarea id="issueNotes" placeholder="اكتب تفاصيل المشكلة أو الموعد المناسب للفحص..."></textarea>
+          </div>
+
+          <button type="submit" class="btn">إرسال طلب الصيانة</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- واجهة الإدارة المحمية برمز PIN -->
+    <section id="adminView" class="hidden">
+      <div class="card" id="pinGate">
+        <h2>دخول الإدارة — مؤسسة زول كول</h2>
+        <p style="color: var(--muted); margin-bottom: 12px;">أدخل رمز PIN الإداري لعرض الطلبات والمتابعة المالية (الرمز الافتراضي: <strong>2026</strong> — يمكنك تغييره لاحقاً من داخل الكود).</p>
+        <div class="grid-2">
+          <div>
+            <label for="pinInput">رمز PIN</label>
+            <input type="password" id="pinInput" placeholder="أدخل رمز PIN" />
+          </div>
+        </div>
+        <button class="btn" onclick="unlockAdmin()">فتح لوحة الإدارة</button>
+        <p id="pinError" style="color: #fca5a5; margin-top: 10px; font-size: 0.88rem;"></p>
+      </div>
+
+      <div id="adminPanel" class="hidden">
+        <div class="card">
+          <h2>ملخص الأداء والمؤشر المالي الشهري</h2>
+          <div class="grid-4">
+            <div class="stat">
+              <span>المصروفات الشهرية المرجعية</span>
+              <strong>29,800 ج.م</strong>
+            </div>
+            <div class="stat">
+              <span>الإيراد الشهري المستهدف</span>
+              <strong>42,500 ج.م</strong>
+            </div>
+            <div class="stat">
+              <span>صافي الربح المستهدف</span>
+              <strong style="color: #34d399;">12,700 ج.م</strong>
+            </div>
+            <div class="stat">
+              <span>إجمالي قيمة الطلبات المسجلة</span>
+              <strong id="totalOrdersAmount">0 ج.م</strong>
+            </div>
+          </div>
+          <div class="actions-row">
+            <button class="btn btn-outline btn-sm" onclick="lockAdmin()">قفل لوحة الإدارة</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>سجل طلبات الصيانة والعملاء</h2>
+          <div id="ordersList"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      ZOOL COOL (زول كول) • مؤسسة زول كول لصيانة الأجهزة وقطع الغيار • info.zoolcool@gmail.com
+    </footer>
+  </div>
+
+  <script>
+    const ADMIN_PIN = "2026";
+    const STORAGE_KEY = "zoolcool_orders_v1";
+
+    function loadOrders() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveOrders(orders) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+    }
+
+    function switchView(view) {
+      const clientView = document.getElementById("clientView");
+      const adminView = document.getElementById("adminView");
+      const tabClientBtn = document.getElementById("tabClientBtn");
+      const tabAdminBtn = document.getElementById("tabAdminBtn");
+
+      if (view === "client") {
+        clientView.classList.remove("hidden");
+        adminView.classList.add("hidden");
+        tabClientBtn.classList.add("active");
+        tabAdminBtn.classList.remove("active");
+      } else {
+        clientView.classList.add("hidden");
+        adminView.classList.remove("hidden");
+        tabAdminBtn.classList.add("active");
+        tabClientBtn.classList.remove("active");
+        renderOrders();
+      }
+    }
+
+    function addOrder(e) {
+      e.preventDefault();
+      const orders = loadOrders();
+      const newOrder = {
+        id: "ZC-" + Date.now().toString().slice(-6),
+        name: document.getElementById("customerName").value.trim(),
+        phone: document.getElementById("customerPhone").value.trim(),
+        appliance: document.getElementById("applianceType").value,
+        price: Number(document.getElementById("estimatedPrice").value) || 250,
+        address: document.getElementById("customerAddress").value.trim(),
+        notes: document.getElementById("issueNotes").value.trim(),
+        status: "جديد",
+        createdAt: new Date().toLocaleString("ar-EG")
+      };
+
+      orders.unshift(newOrder);
+      saveOrders(orders);
+      document.getElementById("bookingForm").reset();
+      document.getElementById("estimatedPrice").value = 500;
+
+      const alertBox = document.getElementById("bookingSuccess");
+      alertBox.style.display = "block";
+      setTimeout(() => {
+        alertBox.style.display = "none";
+      }, 4000);
+    }
+
+    function unlockAdmin() {
+      const inputPin = document.getElementById("pinInput").value.trim();
+      const errEl = document.getElementById("pinError");
+      if (inputPin === ADMIN_PIN) {
+        errEl.textContent = "";
+        document.getElementById("pinGate").classList.add("hidden");
+        document.getElementById("adminPanel").classList.remove("hidden");
+        renderOrders();
+      } else {
+        errEl.textContent = "رمز PIN غير صحيح. حاول مرة أخرى.";
+      }
+    }
+
+    function lockAdmin() {
+      document.getElementById("pinInput").value = "";
+      document.getElementById("adminPanel").classList.add("hidden");
+      document.getElementById("pinGate").classList.remove("hidden");
+    }
+
+    function toggleOrderStatus(id) {
+      const orders = loadOrders().map((o) =>
+        o.id === id ? { ...o, status: o.status === "مكتمل" ? "جديد" : "مكتمل" } : o
+      );
+      saveOrders(orders);
+      renderOrders();
+    }
+
+    function deleteOrder(id) {
+      const orders = loadOrders().filter((o) => o.id !== id);
+      saveOrders(orders);
+      renderOrders();
+    }
+
+    function renderOrders() {
+      const orders = loadOrders();
+      const listEl = document.getElementById("ordersList");
+      const totalEl = document.getElementById("totalOrdersAmount");
+
+      const totalAmount = orders.reduce((sum, o) => sum + (Number(o.price) || 0), 0);
+      totalEl.textContent = totalAmount.toLocaleString("ar-EG") + " ج.م";
+
+      if (!orders.length) {
+        listEl.innerHTML = '<p style="color: var(--muted);">لا توجد طلبات مسجلة حتى الآن.</p>';
+        return;
+      }
+
+      listEl.innerHTML = orders
+        .map(
+          (o) => `
+          <div class="order-item">
+            <div class="order-top">
+              <strong>${o.name} — ${o.appliance} (${o.id})</strong>
+              <span class="badge ${o.status === "مكتمل" ? "badge-done" : "badge-new"}">${o.status}</span>
+            </div>
+            <div style="font-size: 0.9rem; color: #cbd5e1;">
+              <div>الهاتف: ${o.phone} • السعر التقديري: ${Number(o.price).toLocaleString("ar-EG")} ج.م</div>
+              <div>العنوان: ${o.address}</div>
+              ${o.notes ? `<div>ملاحظات: ${o.notes}</div>` : ""}
+              <div style="font-size: 0.8rem; color: var(--muted); margin-top: 4px;">تاريخ الطلب: ${o.createdAt}</div>
+            </div>
+            <div class="actions-row">
+              <button class="btn btn-sm btn-success" onclick="toggleOrderStatus('${o.id}')">
+                ${o.status === "مكتمل" ? "إعادة إلى جديد" : "تحديد كمكتمل"}
+              </button>
+              <button class="btn btn-sm btn-danger" onclick="deleteOrder('${o.id}')">حذف</button>
+            </div>
+          </div>
+        `
+        )
+        .join("");
+    }
+  </script>
+</body>
+</html>
